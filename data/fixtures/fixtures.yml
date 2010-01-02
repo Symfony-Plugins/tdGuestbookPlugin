@@ -1,0 +1,13 @@
+<?php $generator = new tdRandomDataGenerator(); ?>
+tdGuestbook:
+<?php for($i = 0; $i < 150; $i++): ?>
+  guestbook_<?php echo $i ?>:
+    author: <?php echo $generator->getRandomName()."\n" ?>
+<?php if(mt_rand(0,3)): ?>
+    email: <?php echo $generator->getRandomEmail()."\n" ?>
+<?php endif; ?>
+<?php if(mt_rand(0,3) == 0): ?>
+    http: <?php echo $generator->getRandomHttp()."\n" ?>
+<?php endif; ?>
+    text: <?php echo $generator->getRandomText(mt_rand(20,100)*mt_rand(1,5))."\n" ?>
+<?php endfor; ?>

@@ -1,0 +1,12 @@
+td_sample_guestbook:
+  url:   /sample-guestbook
+  param: { module: tdSampleGuestbook, action: index }
+
+td_guestbook:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                tdGuestbook
+    module:               td_guestbook
+    prefix_path:          guestbook
+    column:               id
+    with_wildcard_routes: true

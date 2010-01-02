@@ -1,0 +1,17 @@
+tdGuestbook:
+  options:
+    collate: utf8_general_ci
+    charset: utf8
+  actAs:
+    Timestampable: ~
+  columns:
+    author:
+      type: string(32)
+      notnull: true
+    email:
+      type: string(64)
+    http:
+      type: string(64)
+    text:
+      type: clob
+      notnull: true
