@@ -1,5 +1,7 @@
 <h1>Księga gości</h1>
 
+<a href="<?php echo url_for('guestbook/new') ?>">Wpisz się do księgi gości</a>
+
 <div id="guestbook">
   <?php foreach ($pager->getResults() as $i => $entry): ?>
     <div class="entry">

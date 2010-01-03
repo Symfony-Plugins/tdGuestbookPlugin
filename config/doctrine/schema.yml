@@ -15,3 +15,7 @@ tdGuestbook:
     text:
       type: clob
       notnull: true
+    active:
+      type: boolean
+      notnull: true
+      default: true

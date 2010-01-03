@@ -12,5 +12,28 @@
  */
 class PlugintdGuestbookTable extends Doctrine_Table
 {
+  /**
+   * Returns DQL query retrieving all active guestbook entries.
+   *
+   * @return Doctrine_Query
+   */
+  static public function getActiveEntriesQuery()
+  {
+    return Doctrine_Query::create()
+             ->from('tdGuestbook e')
+             ->where('e.active = "1"');
+  }
 
+  /**
+   * Returns DQL query retrieving guestbook entries selected by ids.
+   *
+   * @param Array $ids - Identifiers of selected links.
+   * @return Doctrine_Query
+   */
+  static public function getSelectedEntriesQuery($ids)
+  {
+    return Doctrine_Query::create()
+             ->from('tdGuestbook e')
+             ->whereIn('e.id', $ids);
+  }
 }

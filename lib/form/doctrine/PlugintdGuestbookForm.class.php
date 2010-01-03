@@ -10,4 +10,19 @@
  */
 abstract class PlugintdGuestbookForm extends BasetdGuestbookForm
 {
+  public function setup()
+  {
+    parent::setup();
+
+    unset( $this['created_at'], $this['updated_at'] );
+
+    $this->setValidator('author',
+      new sfValidatorString(array(), array('required' => 'Musisz podać autora wpisu.')));
+
+    $this->setValidator('text',
+      new sfValidatorString(array(), array('required' => 'Musisz podać treść wpisu.')));
+
+    $this->setValidator('email',
+      new sfValidatorEmail(array('required' => false), array('invalid' => 'Musisz podać poprawny adres E-mail')));
+  }
 }

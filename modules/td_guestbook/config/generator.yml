@@ -9,13 +9,53 @@ generator:
     plural:                ~
     route_prefix:          td_guestbook
     with_doctrine_route:   true
+    css:                   nothing
     actions_base_class:    sfActions
+    i18n_catalogue:        sf_admin
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+        author:
+          label: Autor
+        text:
+          label: Treść
+        email:
+          label: Adres E-mail
+        http:
+          label: Adres WWW
+        active:
+          label: Aktywny
+          help: if the link shall be visible on the frontend website
+        created_at:
+          label: Utworzono
+        updated_at:
+          label: Zmieniono
+      list:
+        title: Guestbook entry list
+        batch_actions:
+          _delete: ~
+          activate: ~
+          deactivate: ~
+        object_actions:
+          _edit: ~
+          _delete: ~
+          activate: ~
+          deactivate: ~
+        display: [ active, author, text, updated_at ]
+        max_per_page: 10
       filter:  ~
-      form:    ~
-      edit:    ~
-      new:     ~
+      form:
+        fields:
+          author:
+            attributes: { size: 80 }
+          email:
+            attributes: { size: 80 }
+          http:
+            attributes: { size: 80 }
+          text:
+            attributes: { cols: 80, rows: 10 }
+      edit:
+        title: Edit guestbook entry
+      new:
+        title: New guestbook entry

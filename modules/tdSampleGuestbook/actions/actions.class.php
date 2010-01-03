@@ -18,7 +18,7 @@ class tdSampleGuestbookActions extends sfActions
       'Guestbook',
       sfConfig::get('td_guestbook_entries_per_page')
     );
-    $this->pager->setQuery($this->guestbooks = Doctrine::getTable('tdGuestbook')->createQuery('a'));
+    $this->pager->setQuery($this->guestbooks = Doctrine::getTable('tdGuestbook')->getActiveEntriesQuery());
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }

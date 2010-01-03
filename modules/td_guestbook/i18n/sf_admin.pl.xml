@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en" datatype="plaintext">
+    <header />
+    <body>
+
+      <!-- Help fields -->
+      <trans-unit>
+        <source>if the link shall be visible on the frontend website</source>
+        <target>czy link ma być widoczny na stronie www</target>
+      </trans-unit>
+
+      <!-- Object/Batch Actions -->
+      <trans-unit>
+        <source>Activate</source>
+        <target>Aktywuj</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Deactivate</source>
+        <target>Deaktywuj</target>
+      </trans-unit>
+
+      <!-- Actions -->
+      <trans-unit>
+        <source>Guestbook entry list</source>
+        <target>Lista wpisów do księgi gości</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Edit guestbook entry</source>
+        <target>Edytuj wpis do księgi gości</target>
+      </trans-unit>
+      <trans-unit>
+        <source>New guestbook entry</source>
+        <target>Nowy wpis do księgi gości</target>
+      </trans-unit>
+
+      <!-- Flashes -->
+      <trans-unit>
+        <source>The selected guestbook entries have been activated successfully.</source>
+        <target>Wybrane wpisy do księgi gości zostały aktywowane.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The selected guestbook entry has been activated successfully.</source>
+        <target>Wybrany wpis do księgi gości został aktywowany.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The selected guestbook entries have been deactivated successfully.</source>
+        <target>Wybrane wpisy do księgi gości zostały deaktywowane.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>The selected guestbook entry has been deactivated successfully.</source>
+        <target>Wybrany wpis do księgi gości został deaktywowany.</target>
+      </trans-unit>
+
+      <!-- Fields -->
+      <trans-unit>
+        <source>Created at</source>
+        <target>Utworzono</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Updated at</source>
+        <target>Zmodyfikowano</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
