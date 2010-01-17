@@ -27,7 +27,7 @@ class PlugintdGuestbookTable extends Doctrine_Table
   /**
    * Returns DQL query retrieving guestbook entries selected by ids.
    *
-   * @param Array $ids - Identifiers of selected links.
+   * @param Array $ids - Identifiers of selected guestbook entries.
    * @return Doctrine_Query
    */
   static public function getSelectedEntriesQuery($ids)
