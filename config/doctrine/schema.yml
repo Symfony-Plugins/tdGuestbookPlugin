@@ -1,7 +1,8 @@
+options:
+  collate: utf8_general_ci
+  charset: utf8
+
 tdGuestbook:
-  options:
-    collate: utf8_general_ci
-    charset: utf8
   actAs:
     Timestampable: ~
   columns:

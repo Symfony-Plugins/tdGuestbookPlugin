@@ -3,7 +3,7 @@ tdGuestbookPlugin
 
 Provides funcionalities for a standard guestbook.
 
-This plugin is a part of __TD CMS__ and is based on __Doctrine ORM__.
+This plugin is a part of __TD CMF__ and is based on __Doctrine ORM__.
 
 Installation
 ============

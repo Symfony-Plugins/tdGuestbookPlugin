@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PlugintdGuestbook form.
+ * PlugintdGuestbook filter form.
  *
  * @package    tdGuestbookPlugin
  * @subpackage filter

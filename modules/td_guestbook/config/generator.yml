@@ -9,8 +9,8 @@ generator:
     plural:                ~
     route_prefix:          td_guestbook
     with_doctrine_route:   true
-    css:                   nothing
     actions_base_class:    sfActions
+    css:                   nothing
     i18n_catalogue:        sf_admin
 
     config:
