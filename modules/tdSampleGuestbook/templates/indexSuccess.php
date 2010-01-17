@@ -32,11 +32,11 @@
   <div id="pagination">
 
     <a href="?page=1">
-      <img src="/sf/sf_admin/images/first.png" alt="Pierwsza strona" title="Pierwsza strona" />
+      <img src="/tdCorePlugin/images/pagination/first.png" alt="Pierwsza strona" title="Pierwsza strona" />
     </a>
 
     <a href="?page=<?php echo $pager->getPreviousPage() ?>">
-      <img src="/sf/sf_admin/images/previous.png" alt="Poprzednia strona" title="Poprzednia strona" />
+      <img src="/tdCorePlugin/images/pagination/previous.png" alt="Poprzednia strona" title="Poprzednia strona" />
     </a>
 
     <?php foreach ($pager->getLinks() as $page): ?>
@@ -48,11 +48,11 @@
     <?php endforeach; ?>
 
     <a href="?page=<?php echo $pager->getNextPage() ?>">
-      <img src="/sf/sf_admin/images/next.png" alt="Następna strona" title="Następna strona" />
+      <img src="/tdCorePlugin/images/pagination/next.png" alt="Następna strona" title="Następna strona" />
     </a>
 
     <a href="?page=<?php echo $pager->getLastPage() ?>">
-      <img src="/sf/sf_admin/images/last.png" alt="Ostatnia strona" title="Ostatnia strona" />
+      <img src="/tdCorePlugin/images/pagination/last.png" alt="Ostatnia strona" title="Ostatnia strona" />
     </a>
   </div>
 <?php endif; ?>
