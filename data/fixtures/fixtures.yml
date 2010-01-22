@@ -11,3 +11,5 @@ tdGuestbook:
 <?php endif; ?>
     text: <?php echo $generator->getRandomText(mt_rand(20,100)*mt_rand(1,5))."\n" ?>
 <?php endfor; ?>
+    created_at: <?php echo $time = $generator->getRandomCreatedAt(2000 + mt_rand(1,9))."\n" ?>
+    updated_at: <?php echo $time ?>

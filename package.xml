@@ -10,10 +10,10 @@
   <email>tomasz.ducin@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2010-01-17</date>
+ <date>2010-01-22</date>
  <time>11:00:00</time>
  <version>
-   <release>0.1.1</release>
+   <release>0.1.2</release>
    <api>0.1.0</api>
  </version>
  <stability>
@@ -82,10 +82,15 @@
          </dir>
          <dir name="templates">
            <file name="_form.php" role="data" />
-           <file name="editSuccess.php" role="data" />
            <file name="indexSuccess.php" role="data" />
            <file name="newSuccess.php" role="data" />
          </dir>
+       </dir>
+     </dir>
+
+     <dir name="web">
+       <dir name="css">
+         <file name="td_guestbook.css" role="data" />
        </dir>
      </dir>
 
@@ -112,7 +117,7 @@
     <package>
      <name>tdCorePlugin</name>
      <channel>plugins.symfony-project.org</channel>
-     <min>0.1.3</min>
+     <min>0.1.7</min>
     </package>
    </required>
   </dependencies>
@@ -121,6 +126,25 @@
   </phprelease>
 
   <changelog>
+
+   <release>
+    <version>
+     <release>0.1.2</release>
+     <api>0.1.0</api>
+    </version>
+    <stability>
+     <release>beta</release>
+     <api>beta</api>
+    </stability>
+    <license uri="http://www.symfony-project.org/license">MIT license</license>
+    <date>2010-01-22</date>
+    <license>MIT</license>
+    <notes>
+     * added stylesheets and modified layout
+     * added model methods
+     * fixed adding posts
+    </notes>
+   </release>
 
    <release>
     <version>

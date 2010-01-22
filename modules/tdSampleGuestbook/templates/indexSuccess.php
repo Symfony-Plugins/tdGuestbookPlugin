@@ -1,67 +1,78 @@
+<?php use_helper('I18N', 'Date') ?>
+
 <h1>Księga gości</h1>
 
-<a href="<?php echo url_for('guestbook/new') ?>">Wpisz się do księgi gości</a>
+<div class="special">
+  <a href="<?php echo url_for('@td_sample_guestbook_add') ?>">Wpisz się do księgi gości</a>
+</div>
 
-<div id="guestbook">
-  <?php foreach ($pager->getResults() as $i => $entry): ?>
-    <div class="entry">
-
-      <span class="author"><?php echo $entry->getAuthor() ?></span>
-
-      <?php if($entry->getEmail()): ?>
-      <span class="email">
-          <a href="mailto:<?php echo $entry->getEmail() ?>"><?php echo $entry->getEmail() ?></a>
-      </span>
+<?php if($results = $pager->getResults(Doctrine_Core::HYDRATE_ARRAY)): ?>
+<ul id="guestbook">
+  <?php foreach ($results as $key => $entry): ?>
+    <li>
+      <div class="author">
+        <span class="value"><?php echo $entry['author'] ?></span>
+      </div>
+      <?php if($entry['email']): ?>
+      <div class="email">
+        <span class="title"><?php echo __('E-mail', array(), 'td') ?>: </span>
+        <span class="value"><a href="mailto:<?php echo $entry['email'] ?>"><?php echo $entry['email'] ?></a></span>
+      </div>
       <?php endif; ?>
-
-      <?php if($entry->getHttp()): ?>
-      <span class="http">
-          <a href="<?php echo $entry->getHttp() ?>"><?php echo $entry->getHttp() ?></a>
-      </span>
+      <?php if($entry['http']): ?>
+      <div class="http">
+        <span class="title"><?php echo __('WWW', array(), 'td') ?>: </span>
+        <span class="value"><a href="<?php echo $entry['http'] ?>"><?php echo $entry['http'] ?></a></span>
+      </div>
       <?php endif; ?>
-
-      <span class="text"><?php echo $entry->getText() ?></span>
-
-      <span class="created"><?php echo $entry->getCreatedAt() ?></span>
-
-    </div>
+      <div class="text">
+        <span class="value"><?php echo $entry['text'] ?></span>
+      </div>
+      <div class="created_at">
+        <span class="value"><?php echo (false !== strtotime($entry['created_at']) ? format_date($entry['created_at'], "f") : '&nbsp;') ?></span>
+      </div>
+    </li>
   <?php endforeach; ?>
+</ul>
+
+<div class="special">
+  <a href="<?php echo url_for('@td_sample_guestbook_add') ?>">Wpisz się do księgi gości</a>
 </div>
 
-<?php if ($pager->haveToPaginate()): ?>
-  <div id="pagination">
+<ul id="guestbook_footer">
+    <li>
+      <?php if ($pager->haveToPaginate()): ?>
+      <div class="pagination">
 
-    <a href="?page=1">
-      <img src="/tdCorePlugin/images/pagination/first.png" alt="Pierwsza strona" title="Pierwsza strona" />
-    </a>
-
-    <a href="?page=<?php echo $pager->getPreviousPage() ?>">
-      <img src="/tdCorePlugin/images/pagination/previous.png" alt="Poprzednia strona" title="Poprzednia strona" />
-    </a>
-
-    <?php foreach ($pager->getLinks() as $page): ?>
-      <?php if ($page == $pager->getPage()): ?>
-        <a class="active"><?php echo $page ?></a>
-      <?php else: ?>
-        <a href="?page=<?php echo $page ?>"><?php echo $page ?></a>
+        <a href="?page=1">
+          <img src="/tdCorePlugin/images/pagination/first.png" alt="Pierwsza strona" title="Pierwsza strona" />
+        </a>
+        <a href="?page=<?php echo $pager->getPreviousPage() ?>">
+          <img src="/tdCorePlugin/images/pagination/previous.png" alt="Poprzednia strona" title="Poprzednia strona" />
+        </a>
+        <?php foreach ($pager->getLinks() as $page): ?>
+          <?php if ($page == $pager->getPage()): ?>
+            <a class="active"><?php echo $page ?></a>
+          <?php else: ?>
+            <a href="?page=<?php echo $page ?>"><?php echo $page ?></a>
+          <?php endif; ?>
+        <?php endforeach; ?>
+        <a href="?page=<?php echo $pager->getNextPage() ?>">
+          <img src="/tdCorePlugin/images/pagination/next.png" alt="Następna strona" title="Następna strona" />
+        </a>
+        <a href="?page=<?php echo $pager->getLastPage() ?>">
+          <img src="/tdCorePlugin/images/pagination/last.png" alt="Ostatnia strona" title="Ostatnia strona" />
+        </a>
+      </div>
       <?php endif; ?>
-    <?php endforeach; ?>
-
-    <a href="?page=<?php echo $pager->getNextPage() ?>">
-      <img src="/tdCorePlugin/images/pagination/next.png" alt="Następna strona" title="Następna strona" />
-    </a>
-
-    <a href="?page=<?php echo $pager->getLastPage() ?>">
-      <img src="/tdCorePlugin/images/pagination/last.png" alt="Ostatnia strona" title="Ostatnia strona" />
-    </a>
-  </div>
+    </li>
+    <li>
+      <div class="stats">
+        <strong><?php echo count($pager) ?></strong>
+        wpisów w księdze<?php if ($pager->haveToPaginate()): ?>,
+          strona <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
+        <?php endif; ?>
+      </div>
+    </li>
+</ul>
 <?php endif; ?>
-
-<div class="pagination">
-  <strong><?php echo count($pager) ?></strong> wpisów w księdze
-  <?php if ($pager->haveToPaginate()): ?>
-    , strona <strong><?php echo $pager->getPage() ?>/<?php echo $pager->getLastPage() ?></strong>
-  <?php endif; ?>
-</div>
-
-<a href="<?php echo url_for('guestbook/new') ?>">Wpisz się do księgi gości</a>

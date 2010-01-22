@@ -12,27 +12,31 @@ class tdSampleGuestbookActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-//    $this->category = $this->getRoute()->getObject();
+    // ading default td_guestbook layout
+    $this->getResponse()->addStylesheet('/tdGuestbookPlugin/css/td_guestbook.css');
 
     $this->pager = new sfDoctrinePager(
       'Guestbook',
       sfConfig::get('td_guestbook_entries_per_page')
     );
-    $this->pager->setQuery($this->guestbooks = Doctrine::getTable('tdGuestbook')->getActiveEntriesQuery());
+    $this->pager->setQuery($this->guestbooks = Doctrine::getTable('tdGuestbook')->getActiveSortedEntriesQuery());
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new GuestbookForm();
+    // ading default td_guestbook layout
+    $this->getResponse()->addStylesheet('/tdGuestbookPlugin/css/td_guestbook.css');
+
+    $this->form = new tdGuestbookForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new GuestbookForm();
+    $this->form = new tdGuestbookForm();
 
     $this->processForm($request, $this->form);
 
@@ -45,8 +49,10 @@ class tdSampleGuestbookActions extends sfActions
     if ($form->isValid())
     {
       $guestbook = $form->save();
+      $guestbook->setActive(true);
+      $guestbook->save();
 
-      $this->redirect('guestbook/edit?id='.$guestbook->getId());
+      $this->redirect('td_sample_guestbook');
     }
   }
 }

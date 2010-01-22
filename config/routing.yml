@@ -2,6 +2,10 @@ td_sample_guestbook:
   url:   /sample-guestbook
   param: { module: tdSampleGuestbook, action: index }
 
+td_sample_guestbook_add:
+  url:   /guestbook-add
+  param: { module: tdSampleGuestbook, action: new }
+
 td_guestbook:
   class: sfDoctrineRouteCollection
   options:

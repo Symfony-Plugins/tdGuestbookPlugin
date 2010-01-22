@@ -3,7 +3,9 @@
 
 <h1>Nowy wpis do Księgi Gości</h1>
 
-<form action="<?php echo url_for('guestbook/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<ul id="guestbook">
+<li>
+<form action="<?php echo url_for('tdSampleGuestbook/create') ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
@@ -12,59 +14,43 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
-          &nbsp;<a href="<?php echo url_for('guestbook/index') ?>">Anuluj</a>
-          <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'guestbook/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-          <?php endif; ?>
-          <input type="submit" value="Save" />
+          &nbsp;<a href="<?php echo url_for('@td_sample_guestbook') ?>">Anuluj</a>
+          <input type="submit" value="Wpisz się do księgi gości" />
         </td>
       </tr>
     </tfoot>
     <tbody>
       <?php echo $form->renderGlobalErrors() ?>
       <tr>
-        <th><?php echo $form['author']->renderLabel() ?></th>
+        <th><?php echo $form['author']->renderLabel('Autor') ?></th>
         <td>
           <?php echo $form['author']->renderError() ?>
           <?php echo $form['author'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['email']->renderLabel() ?></th>
+        <th><?php echo $form['email']->renderLabel('E-mail') ?></th>
         <td>
           <?php echo $form['email']->renderError() ?>
           <?php echo $form['email'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['http']->renderLabel() ?></th>
+        <th><?php echo $form['http']->renderLabel('Strona WWW') ?></th>
         <td>
           <?php echo $form['http']->renderError() ?>
           <?php echo $form['http'] ?>
         </td>
       </tr>
       <tr>
-        <th><?php echo $form['text']->renderLabel() ?></th>
+        <th><?php echo $form['text']->renderLabel('Treść') ?></th>
         <td>
           <?php echo $form['text']->renderError() ?>
           <?php echo $form['text'] ?>
         </td>
       </tr>
-      <tr>
-        <th><?php echo $form['created_at']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['created_at']->renderError() ?>
-          <?php echo $form['created_at'] ?>
-        </td>
-      </tr>
-      <tr>
-        <th><?php echo $form['updated_at']->renderLabel() ?></th>
-        <td>
-          <?php echo $form['updated_at']->renderError() ?>
-          <?php echo $form['updated_at'] ?>
-        </td>
-      </tr>
     </tbody>
   </table>
 </form>
-
+</li>
+</ul>

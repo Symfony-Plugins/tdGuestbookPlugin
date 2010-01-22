@@ -17,7 +17,13 @@ or by using the default symfony plugin install command:
 
     $ ./symfony plugin:install -s beta tdGuestbookPlugin
 
-as the actual release is in its beta stage.
+as the actual release is in its beta stage. Right after the installation of the
+plugin, you should update plugin assets:
+
+    $ ./symfony plugin:publish-assets
+
+so that the predefined layout files of the plugin are accessible. Everything
+is done properly now.
 
 Usage
 =====

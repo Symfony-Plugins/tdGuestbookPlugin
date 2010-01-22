@@ -17,11 +17,12 @@ class PlugintdGuestbookTable extends Doctrine_Table
    *
    * @return Doctrine_Query
    */
-  static public function getActiveEntriesQuery()
+  static public function getActiveSortedEntriesQuery()
   {
     return Doctrine_Query::create()
-             ->from('tdGuestbook e')
-             ->where('e.active = "1"');
+      ->from('tdGuestbook e')
+      ->where('e.active = "1"')
+      ->orderBy('e.created_at DESC');
   }
 
   /**
@@ -33,7 +34,21 @@ class PlugintdGuestbookTable extends Doctrine_Table
   static public function getSelectedEntriesQuery($ids)
   {
     return Doctrine_Query::create()
-             ->from('tdGuestbook e')
-             ->whereIn('e.id', $ids);
+      ->from('tdGuestbook e')
+      ->whereIn('e.id', $ids);
+  }
+
+  /**
+   * Returns DQL query retrieving last active guestbook entry.
+   *
+   * @return Doctrine_Query
+   */
+  static public function getLastActiveEntryQuery()
+  {
+    return Doctrine_Query::create()
+      ->from('tdGuestbook e')
+      ->where('e.active = "1"')
+      ->orderBy('e.updated_at DESC')
+      ->limit(1);
   }
 }
