@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en" datatype="plaintext">
+    <header />
+    <body>
+      <trans-unit>
+        <source>Thank you for submitting your guestbook entry.</source>
+        <target>Dziękujemy za wpis w księdze gości.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Entry could not be added to the guestbook due to some errors.</source>
+        <target>Wpis nie mógł zostać dodany do księgi gości z powodu błędów</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -42,7 +42,7 @@ generator:
           _delete: ~
           activate: ~
           deactivate: ~
-        display: [ active, author, text, updated_at ]
+        display: [ active, author, text, updated_at, created_at ]
         max_per_page: 10
         layout: stacked
         params: |
@@ -53,6 +53,7 @@ generator:
           <strong>Utworzono</strong>: <i>%%created_at%%</i>
           <br />
           <strong>Zmieniono</strong>: <i>%%updated_at%%</i>
+        sort: created_at
       filter:  ~
       form:
         fields:

@@ -1,10 +1,20 @@
-<?php use_stylesheets_for_form($form) ?>
-<?php use_javascripts_for_form($form) ?>
+<?php
+use_helper('sfCryptoCaptcha', 'I18N');
+use_stylesheets_for_form($form);
+use_javascripts_for_form($form);
+captcha_image();
+captcha_reload_button();
+?>
 
 <h1>Nowy wpis do Księgi Gości</h1>
 
 <ul id="guestbook">
 <li>
+
+<?php if ($form->hasErrors()): ?>
+  <h2 class="error"><?php echo __('Entry could not be added to the guestbook due to some errors.', array(), 'td') ?></h2>
+<?php endif; ?>
+
 <form action="<?php echo url_for('tdSampleGuestbook/create') ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
@@ -12,6 +22,7 @@
   <table>
     <tfoot>
       <tr>
+        <th></th>
         <td colspan="2">
           <?php echo $form->renderHiddenFields(false) ?>
           &nbsp;<a href="<?php echo url_for('@td_sample_guestbook') ?>">Anuluj</a>
@@ -47,6 +58,17 @@
         <td>
           <?php echo $form['text']->renderError() ?>
           <?php echo $form['text'] ?>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><?php echo captcha_image(); echo captcha_reload_button(); ?></td>
+      </tr>
+      <tr>
+        <th><?php echo $form['captcha']->renderLabel(); ?></th>
+        <td>
+          <?php echo $form['captcha']->renderError(); ?>
+          <?php echo $form['captcha']->render(); ?>
         </td>
       </tr>
     </tbody>

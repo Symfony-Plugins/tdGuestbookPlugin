@@ -29,14 +29,14 @@ class tdSampleGuestbookActions extends sfActions
     // ading default td_guestbook layout
     $this->getResponse()->addStylesheet('/tdGuestbookPlugin/css/td_guestbook.css');
 
-    $this->form = new tdGuestbookForm();
+    $this->form = new tdFrontendGuestbookForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new tdGuestbookForm();
+    $this->form = new tdFrontendGuestbookForm();
 
     $this->processForm($request, $this->form);
 
@@ -52,6 +52,7 @@ class tdSampleGuestbookActions extends sfActions
       $guestbook->setActive(true);
       $guestbook->save();
 
+      $this->getUser()->setFlash('notice', 'Thank you for submitting your guestbook entry.');
       $this->redirect('td_sample_guestbook');
     }
   }

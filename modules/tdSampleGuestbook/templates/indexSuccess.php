@@ -2,6 +2,10 @@
 
 <h1>Księga gości</h1>
 
+<?php if ($sf_user->hasFlash('notice')): ?>
+  <h2><?php echo __($sf_user->getFlash('notice'), array(), 'td') ?></h2>
+<?php endif; ?>
+
 <div class="special">
   <a href="<?php echo url_for('@td_sample_guestbook_add') ?>">Wpisz się do księgi gości</a>
 </div>

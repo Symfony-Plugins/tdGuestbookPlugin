@@ -53,6 +53,10 @@ Usage
         [php]
         enabled_modules: [ ..., td_guestbook ]
 
+  * tdSampleGuestbook uses sfCryptoCaptchaPlugin to generate captcha images. A
+    special class with captcha configuration is included: _tdFrontendGuestbookForm_.
+    td_guestbook admin module uses the standard tdGuestbookForm.
+
 Configuration
 =============
 
@@ -77,3 +81,4 @@ Dependencies
 ============
 
   * [tdCorePlugin](http://www.symfony-project.org/plugins/tdCorePlugin)
+  * [sfCryptoCaptchaPlugin](http://www.symfony-project.org/plugins/sfCryptoCaptchaPlugin)
