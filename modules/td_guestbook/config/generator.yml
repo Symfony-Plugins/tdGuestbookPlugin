@@ -44,6 +44,15 @@ generator:
           deactivate: ~
         display: [ active, author, text, updated_at ]
         max_per_page: 10
+        layout: stacked
+        params: |
+          <strong>Autor</strong>: <i>%%author%%</i> %%active%%
+          <br />
+          <strong>Treść</strong>: <div class="text_box">%%text_short%%</div>
+          <br />
+          <strong>Utworzono</strong>: <i>%%created_at%%</i>
+          <br />
+          <strong>Zmieniono</strong>: <i>%%updated_at%%</i>
       filter:  ~
       form:
         fields:

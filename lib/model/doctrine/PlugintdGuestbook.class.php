@@ -13,6 +13,16 @@
 abstract class PlugintdGuestbook extends BasetdGuestbook
 {
   /**
+   * Returns short text of the guestbook entry.
+   *
+   * @return String - short text.
+   */
+  public function getTextShort()
+  {
+    return tdTools::getMbShortenedString($this->getText(), sfConfig::get('td_guestbook_short_text_sign_count'));
+  }
+
+  /**
    * Activates the guestbook entry.
    *
    * @return True
