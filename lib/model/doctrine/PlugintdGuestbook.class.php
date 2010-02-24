@@ -19,7 +19,7 @@ abstract class PlugintdGuestbook extends BasetdGuestbook
    */
   public function getTextShort()
   {
-    return tdTools::getMbShortenedString($this->getText(), sfConfig::get('td_guestbook_short_text_sign_count'));
+    return tdTools::getMbShortenedString($this->getText(), sfConfig::get('td_short_text_sign_count'));
   }
 
   /**

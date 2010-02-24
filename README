@@ -66,9 +66,6 @@ __config/tdGuestbookPluginConfiguration.class.php__ file:
   * _td_guestbook_entries_per_page_ - number of guestbook entries shown on each
     page.
 
-  * _td_guestbook_short_text_sign_count_ - character count of a short guestbook
-    entry descrtiption version
-
 Translations
 ============
 
