@@ -24,25 +24,21 @@ abstract class PlugintdGuestbook extends BasetdGuestbook
 
   /**
    * Activates the guestbook entry.
-   *
-   * @return True
    */
   public function activate()
   {
     $this->setActive(true);
     $this->save();
-    return true;
+//var_dump('activated');
   }
 
   /**
    * Deactivates the guestbook entry.
-   *
-   * @return True
    */
   public function deactivate()
   {
     $this->setActive(false);
     $this->save();
-    return true;
+//var_dump('deactivated');
   }
 }

@@ -57,6 +57,13 @@ Usage
     special class with captcha configuration is included: _tdFrontendGuestbookForm_.
     td_guestbook admin module uses the standard tdGuestbookForm.
 
+  * To use the activate/deactivate AJAX interface in the backend td_guestbook
+    module, remember to enable the __graphics__ module of the __tdCorePlugin__
+    inside your settings.yml file (see tdCorePlugin README).
+
+        [php]
+        enabled_modules: [ ..., graphics ]
+
 Configuration
 =============
 

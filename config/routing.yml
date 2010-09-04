@@ -6,6 +6,20 @@ td_sample_guestbook_add:
   url:   /guestbook-add
   param: { module: tdSampleGuestbook, action: new }
 
+# ajax actions
+
+ajax_guestbook_entry_activate:
+  url:   /ajax-guestbook-entry-activate/:id
+  param: { module: td_guestbook, action: activate }
+  requirements:
+    id: \d+
+
+ajax_guestbook_entry_deactivate:
+  url:   /ajax-guestbook-entry-deactivate/:id
+  param: { module: td_guestbook, action: deactivate }
+  requirements:
+    id: \d+
+
 td_guestbook:
   class: sfDoctrineRouteCollection
   options:

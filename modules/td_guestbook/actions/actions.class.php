@@ -53,33 +53,29 @@ class td_guestbookActions extends autoTd_guestbookActions
         $this->redirect('@td_guestbook');
     }
 
-    /**
-     * Activates selected guestbook entry.
-     *
-     * @param sfWebRequest $request
-     */
-    public function executeListActivate(sfWebRequest $request)
-    {
-        $entry = $this->getRoute()->getObject();
-        $entry->activate();
+  /**
+   * Activates a guestbook entry from admin generator list using AJAX.
+   *
+   * @param sfWebRequest $request
+   * @return Partial - generated partial enabling guestbook entry deactivating (switch).
+   */
+  public function executeActivate(sfWebRequest $request)
+  {
+    $entry = Doctrine::getTable('tdGuestbook')->findOneById($request->getParameter('id'));
+    $entry->activate();
+    return $this->renderPartial('td_guestbook/ajax_deactivate', array('td_guestbook' => $entry));
+  }
 
-        $this->getUser()->setFlash('notice', 'The selected guestbook entry has been activated successfully.');
-
-        $this->redirect('@td_guestbook');
-    }
-
-    /**
-     * Deactivates selected guestbook entry.
-     *
-     * @param sfWebRequest $request
-     */
-    public function executeListDeactivate(sfWebRequest $request)
-    {
-        $entry = $this->getRoute()->getObject();
-        $entry->deactivate();
-
-        $this->getUser()->setFlash('notice', 'The selected guestbook entry has been deactivated successfully.');
-
-        $this->redirect('@td_guestbook');
-    }
+  /**
+   * Deactivates a guestbook entry from admin generator list using AJAX.
+   *
+   * @param sfWebRequest $request
+   * @return Partial - generated partial enabling guestbook entry activating (switch).
+   */
+  public function executeDeactivate(sfWebRequest $request)
+  {
+    $entry = Doctrine::getTable('tdGuestbook')->findOneById($request->getParameter('id'));
+    $entry->deactivate();
+    return $this->renderPartial('td_guestbook/ajax_activate', array('td_guestbook' => $entry));
+  }
 }
